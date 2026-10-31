@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#07090d" />
+    <title>Invoice | Vashodiya Labs</title>
+    <link rel="stylesheet" href="/invoice.css?v=2" />
+    <script src="/config.js"></script>
+    <script src="/invoice.js?v=2" defer></script>
+  </head>
+  <body>
+    <main class="invoice-shell">
+      <header class="invoice-topbar">
+        <a class="brand" href="/" aria-label="Vashodiya Labs home"
+          ><span class="brand-mark">VL</span><span>Vashodiya<span> Labs</span></span></a
+        >
+        <button id="printButton" class="button button-secondary" type="button">
+          Print invoice
+        </button>
+      </header>
+
+      <p class="invoice-alert" id="invoiceMessage" role="status" aria-live="polite">
+        Loading your invoice…
+      </p>
+      <article class="invoice-paper" id="invoicePaper" hidden>
+        <header class="document-heading">
+          <div class="document-brand">
+            <span class="brand-mark" aria-hidden="true">VL</span>
+            <div>
+              <strong>Vashodiya <span>Labs</span></strong>
+              <p>Digital products &amp; software</p>
+            </div>
+          </div>
+          <div class="document-title">
+            <p class="eyebrow" id="invoiceDocumentType">INVOICE</p>
+            <h1>Invoice</h1>
+            <p class="invoice-number" id="invoiceNumber"></p>
+          </div>
+          <span class="payment-badge" id="paymentStatus"></span>
+        </header>
+
+        <div class="parties-grid">
+          <section>
+            <h2>From</h2>
+            <strong id="sellerName"></strong>
+            <p id="sellerAddress"></p>
+            <p id="sellerGstinRow">GSTIN: <span id="sellerGstin"></span></p>
+          </section>
+          <section>
+            <h2>Bill to</h2>
+            <strong id="clientName"></strong>
+            <p id="clientAddress"></p>
+            <p id="clientGstinRow" hidden>GSTIN: <span id="clientGstin"></span></p>
+            <p>Email: <a id="clientEmail"></a></p>
+          </section>
+        </div>
+
+        <dl class="invoice-meta">
+          <div>
+            <dt>Invoice date</dt>
+            <dd id="issueDate"></dd>
+          </div>
+          <div>
+            <dt>Due date</dt>
+            <dd id="dueDate"></dd>
+          </div>
+          <div id="placeOfSupplyRow">
+            <dt>Place of supply</dt>
+            <dd id="placeOfSupply"></dd>
+          </div>
+        </dl>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="item-number">#</th>
+                <th scope="col">Project / service</th>
+                <th scope="col" class="amount">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-number">01</td>
+                <td id="description"></td>
+                <td class="amount" id="subtotal"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <dl class="totals">
+          <div>
+            <dt>Subtotal</dt>
+            <dd id="subtotalTotal"></dd>
+          </div>
+          <div id="cgstRow" hidden>
+            <dt id="cgstLabel">CGST</dt>
+            <dd id="cgstAmount"></dd>
+          </div>
+          <div id="sgstRow" hidden>
+            <dt id="sgstLabel">SGST</dt>
+            <dd id="sgstAmount"></dd>
+          </div>
+          <div id="igstRow" hidden>
+            <dt id="igstLabel">IGST</dt>
+            <dd id="igstAmount"></dd>
+          </div>
+          <div class="grand-total">
+            <dt>Total due</dt>
+            <dd id="totalDue"></dd>
+          </div>
+        </dl>
+
+        <footer class="invoice-footer">
+          <div class="invoice-thanks">
+            <strong>Thank you for your business.</strong>
+            <p id="paymentNote">We appreciate the opportunity to work with you.</p>
+          </div>
+          <button class="button button-primary" id="payButton" type="button" hidden>
+            Pay securely with Stripe <span aria-hidden="true">↗</span>
+          </button>
+        </footer>
+      </article>
+      <p class="secure-note" id="secureNote" hidden>
+        Payments are processed on Stripe's secure checkout. Vashodiya Labs does not store card
+        details.
+      </p>
+    </main>
+  </body>
+</html>

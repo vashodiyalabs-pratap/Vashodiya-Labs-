@@ -1,0 +1,30 @@
+{
+  "name": "vashodiya-labs",
+  "version": "1.0.0",
+  "description": "Vashodiya Labs Backend & Frontend Integration",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node scripts/verify-deploy.js",
+    "check": "npm run format:check && node scripts/verify-deploy.js",
+    "format": "prettier --write \"**/*.{js,html,css,json,yml,yaml,md}\"",
+    "format:check": "prettier --check \"**/*.{js,html,css,json,yml,yaml,md}\"",
+    "test": "node --test",
+    "start": "node server.js",
+    "backup": "node scripts/backup-database.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prettier": "3.6.2"
+  }
+}

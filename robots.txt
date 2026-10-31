@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /thank-you
+Sitemap: https://vashodiyalabs.netlify.app/sitemap.xml

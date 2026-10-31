@@ -1,0 +1,80 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22.13.0"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api-proxy/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api"
+  to = "/.netlify/functions/api-proxy/api"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+[[redirects]]
+  from = "/invoice/*"
+  to = "/invoice.html"
+  status = 200
+
+[[redirects]]
+  from = "/web-development"
+  to = "/web-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/ai-ml"
+  to = "/ai-ml.html"
+  status = 200
+
+[[redirects]]
+  from = "/cloud-devops"
+  to = "/cloud-devops.html"
+  status = 200
+
+[[redirects]]
+  from = "/mobile-apps"
+  to = "/mobile-apps.html"
+  status = 200
+
+[[redirects]]
+  from = "/software-integrations"
+  to = "/software-integrations.html"
+  status = 200
+
+[[redirects]]
+  from = "/ui-ux-design"
+  to = "/ui-ux-design.html"
+  status = 200
+
+[[redirects]]
+  from = "/digital-solutions"
+  to = "/digital-solutions.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200

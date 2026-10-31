@@ -1,0 +1,53 @@
+services:
+  - type: web
+    name: vashodiya-labs-api
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --omit=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: enquiry-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/leads.sqlite
+      - key: BACKUP_DIR
+        value: /var/data/backups
+      - key: BACKUP_RETENTION_DAYS
+        value: '30'
+      - key: DATABASE_BACKUP_INTERVAL_HOURS
+        value: '24'
+      - key: ADMIN_API_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: ENQUIRY_NOTIFY_EMAIL
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: PUBLIC_SITE_URL
+        sync: false
+      - key: INVOICE_TOKEN_SECRET
+        generateValue: true
+      - key: INVOICE_SELLER_NAME
+        sync: false
+      - key: INVOICE_GST_REGISTERED
+        value: 'false'
+      - key: INVOICE_SELLER_GSTIN
+        sync: false
+      - key: INVOICE_SELLER_ADDRESS
+        sync: false
+      - key: INVOICE_SELLER_STATE
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
